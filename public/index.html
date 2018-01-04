@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>bernscode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <script async defer src="https://buttons.github.io/buttons.js">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet">
+</head>
+
+<body>
+      <h1>bernscode</h1>
+      <ul id="myList">
+      </ul>
+
+      <div id="app">
+            <input type="text" v-on:input="changeTitle" /> {{title}} {{users}} {{sayHello()}}
+
+
+            <a v-bind:href="link">Google</a>
+
+            <div>
+                  {{counter}}
+                  <p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}}</p>
+                  <button v-on:click="increase(2, $event)">Click</button>
+            </div>
+      </div>
+
+      <script src="/js/vue.js"></script>
+      <script src="/js/all.js"></script>
+</body>
+
+</html>
