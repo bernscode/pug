@@ -10,6 +10,7 @@ const webpack = require('webpack-stream');
 const watch = require('gulp-watch');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
+const pug = require('gulp-pug');
 
 gulp.task('browser-sync', function() {
     browserSync({
@@ -17,9 +18,11 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('default', ['styles', 'scripts', 'browser-sync'], () => {
+
+gulp.task('default', ['styles', 'scripts', 'views', 'browser-sync'], () => {
   gulp.watch('./src/sass/**/*', ['styles']).on('change', reload);
   gulp.watch('./src/**/*', ['scripts']).on('change', reload);
+  gulp.watch('./src/views/**/*', ['views'])
   gulp.watch('./public/*.html')
     .on('change', reload);
 });
@@ -60,6 +63,17 @@ gulp.task('images', () =>
   }))
   .pipe(gulp.dest('img'))
 );
+
+
+gulp.task('views', function buildHTML() {
+  return gulp.src('src/views/**/*.pug')
+  .pipe(pug({
+    pretty: true
+  }))
+  .pipe(gulp.dest('./public'))
+});
+
+
 
 //  For React
 // gulp.task('react', () => {

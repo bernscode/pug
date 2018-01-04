@@ -4,5 +4,25 @@
 @import "reset";
 
 body{
-  background: yellow;
+  //background: limegreen;
+}
+
+h1{
+  font-weight: 100;
+  font-size: 50px;
+}
+
+header{
+  background: black;
+  a{
+    display: inline-block;
+    padding: 20px;
+    color: white;
+  }
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 95%;
 }
